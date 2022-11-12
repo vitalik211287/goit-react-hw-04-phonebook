@@ -1,5 +1,5 @@
 import { Input, Label } from 'components/Form/Form.styled';
-import React, { Component } from 'react';
+import React from 'react';
 import { Filters } from './Filter.styled';
 
 const Filter = ({onChange, value }) => {

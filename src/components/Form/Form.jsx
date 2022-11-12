@@ -10,10 +10,10 @@ export class Form extends Component {
   };
 
   handleInputChange = e => {
-    const { name, value, id } = e.currentTarget;
+    const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
     const contacts = this.props.state.contacts;
-    contacts.map(({ name, number }) => {
+    contacts.forEach(({ name, number }) => {
       if (
         // name.toLowerCase() === value.toLowerCase() ||
         number === value
