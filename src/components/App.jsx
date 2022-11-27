@@ -7,12 +7,12 @@ import { useState, useEffect } from 'react';
 
 export function App() {
   const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem('contacts'))
+    JSON.parse(window.localStorage.getItem('contacts')) ?? []
   );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const onChangeFilter = e => {
@@ -28,6 +28,7 @@ export function App() {
   };
 
   const state = { filter, contacts };
+  console.log(contacts);
   const normalizedFilter = filter.toLowerCase();
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
